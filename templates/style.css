@@ -4,7 +4,7 @@
     --header-height: 6rem;
 
     /* Color */
-    --bgl: #fff;
+    --bg1: #fff;
     --bg2: #faf8f8;
     --text: #363636;
     --green: #4bae4f;
@@ -40,7 +40,7 @@ html {
 body {
     font-family: var(--font-body);
     font-size: var(--normal-font-size);
-    background-color: var(--bgl);
+    background-color: var(--bg1);
     color: var(--text);
     position: relative;
     overflow-x: hidden;
@@ -55,7 +55,7 @@ img {
 .header {
     width: 100%;
     height: var(--header-height);
-    background-color: var(--bgl);
+    background-color: var(--bg1);
     padding: 1rem 1.25rem;
     position: fixed;
     top: 0;
@@ -155,7 +155,7 @@ img {
 }
 
 .contact:hover {
-    color: var(--bgl);
+    color: var(--bg1);
     border-color: transparent;
     padding: 4px 21px;
 }
@@ -168,7 +168,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bgl);
+    background-color: var(--bg1);
     min-height: 100vh;
 }
 
@@ -188,7 +188,7 @@ img {
 .home .left form button {
     border-radius: 5px;
     background-image: var(--linear-orange);
-    color: var(--bgl);
+    color: var(--bg1);
     font-size: var(--normal-font-size);
     padding: 8px 35px;
     position: absolute;
@@ -289,7 +289,7 @@ img {
     align-items: center;
     gap: 50px;
     min-height: 100vh;
-    background-color: var(--bgl);
+    background-color: var(--bg1);
 }
 
 .about .left {
@@ -299,7 +299,7 @@ img {
     align-items: flex-end;
     width: 400px;
     height: 490px;
-    background-color: var(--bgl);
+    background-color: var(--bg1);
     border-radius: 20px 200px 10px 0;
     padding: 0 20px;
 }
@@ -363,6 +363,92 @@ img {
     width: 30px;
 }
 
+/* Courses Section */
+
+.courses .container {
+    min-height: 80vh;
+    background-color: var(--bg1);
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.courses h1 {
+    text-align: center;
+    font-size: var(--big-font-size);
+    line-height: 60px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+
+.courses h1 span {
+    background-color: var(--light-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.courses .parent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 4rem;
+}
+
+.courses .parent .child {
+    width: 320px;
+    height: 75px;
+    border-radius: 10px;
+    border: 3px solid var(--light-gradient);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.courses .parent .child::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    left: 0;
+    top: 0;
+    background-image: var(--linear-orange);
+    z-index: -1;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.courses .parent .child img {
+    width: 50px;
+}
+
+.courses .parent .child h2 {
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+    color: var(--text);
+    line-height: 27px;
+    transition: 0.4s;
+}
+
+.courses .parent .child:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+}
+
 /* Media Queries */
 
 @media (max-width: 960px) {
@@ -402,7 +488,7 @@ img {
     }
 
     .nav-link {
-        color: var(--bgl);
+        color: var(--bg1);
         font-size: var(--h1-font-size);
     }
 
