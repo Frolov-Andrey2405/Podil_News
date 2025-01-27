@@ -278,6 +278,91 @@ img {
     }
 }
 
+/* About Section */
+
+.about .container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    min-height: 100vh;
+    background-color: var(--bgl);
+}
+
+.about .left {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 400px;
+    height: 490px;
+    background-color: var(--bgl);
+    border-radius: 20px 200px 10px 0;
+    padding: 0 20px;
+}
+
+.about .left img {
+    width: 360px;
+    z-index: 2;
+}
+
+.about .left::after {
+    content: "";
+    position: absolute;
+    top: 35px;
+    left: 25px;
+    width: 400px;
+    height: 490px;
+    background-color: var(--light-gradient);
+    z-index: 1;
+    opacity: 0.3;
+    border-radius: 0 0 20px 200px;
+}
+
+.about .right h1 {
+    font-size: var(--big-font-size);
+    line-height: 60px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.about .right h1 span {
+    text-transform: uppercase;
+    background-color: var(--light-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.about .right p {
+    font-weight: 500;
+    line-height: 17px;
+}
+
+.about .right .advantages {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 50px;
+}
+
+.about .right .advantages figure {
+    font-size: 1.7rem;
+    color: var(--green);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about .right .advantages figure img {
+    width: 30px;
+}
+
 /* Media Queries */
 
 @media (max-width: 960px) {
@@ -400,6 +485,12 @@ img {
     .home .left {
         margin-left: 0;
     }
+
+    /* About Section */
+    .about .container {
+        flex-direction: column;
+        transform: scale(0.9);
+    }
 }
 
 @media (max-width: 1060px) {
@@ -416,6 +507,10 @@ img {
     .home .left form input [type="email"] {
         width: 400px;
     }
+
+    .about .container {
+        transform: scale(0.9);
+    }
 }
 
 @media (max-width: 400px) {
@@ -425,5 +520,9 @@ img {
 
     .home .left form input [type="email"] {
         width: 350px;
+    }
+
+    .about .container {
+        transform: scale(0.8);
     }
 }
