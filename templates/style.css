@@ -449,6 +449,78 @@ img {
     border-color: transparent;
 }
 
+/* Articles Section */
+.articles {
+    background-color: var(--bg1);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.articles h1 {
+    font-size: var(--big-font-size);
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.articles h1 span {
+    background: var(--linear-orange);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.articles-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.article-card {
+    width: 30%;
+    background: var(--bg1);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.article-card:hover {
+    transform: translateY(-10px);
+}
+
+.article-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.article-content h2 {
+    font-size: var(--h2-font-size);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.article-content p {
+    font-size: var(--normal-font-size);
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--small-font-size);
+    color: #777;
+    font-weight: 500;
+}
+
 /* Media Queries */
 
 @media (max-width: 960px) {
@@ -583,6 +655,14 @@ img {
     .home .container {
         transform: scale(0.9);
     }
+
+    .articles-grid {
+        gap: 20px;
+    }
+
+    .article-card {
+        width: 45%;
+    }
 }
 
 @media (max-width: 560px) {
@@ -597,6 +677,23 @@ img {
     .about .container {
         transform: scale(0.9);
     }
+
+    .articles {
+        padding: 60px 0;
+    }
+
+    .articles h1 {
+        font-size: var(--h2-font-size);
+    }
+
+    .articles-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .article-card {
+        width: 90%;
+    }
 }
 
 @media (max-width: 400px) {
@@ -610,5 +707,21 @@ img {
 
     .about .container {
         transform: scale(0.8);
+    }
+
+    .articles {
+        padding: 50px 0;
+    }
+
+    .articles h1 {
+        font-size: var(--h3-font-size);
+    }
+
+    .article-card {
+        width: 100%;
+    }
+
+    .article-content h2 {
+        font-size: var(--normal-font-size);
     }
 }
