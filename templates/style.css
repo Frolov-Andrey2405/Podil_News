@@ -779,6 +779,18 @@ img {
     visibility: visible;
 }
 
+/* Change Color Of ScrollBar */
+
+::-webkit-scrollbar {
+    width: 0.7rem;
+    background-color: var(--light-gradient);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background-color: var(--orange);
+}
+
 /* Media Queries */
 
 @media (max-width: 960px) {
