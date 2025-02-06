@@ -33,3 +33,13 @@ function colorLink() {
     }
 }
 linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+// Header Shadow
+
+let header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY >= 70) {
+        header.classList.add('header-shadow');
+    }
+    else header.classList.remove('header-shadow');
+})
