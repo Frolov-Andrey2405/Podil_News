@@ -43,3 +43,26 @@ window.addEventListener('scroll', () => {
     }
     else header.classList.remove('header-shadow');
 })
+
+// Scroll To Top Button
+
+document.addEventListener("DOMContentLoaded", () => {
+    let up = document.querySelector('.up');
+
+    if (up) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 560) {
+                up.classList.add('show');
+            } else {
+                up.classList.remove('show');
+            }
+        });
+
+        up.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});

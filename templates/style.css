@@ -749,6 +749,36 @@ img {
     line-height: 1rem;
 }
 
+/* Scroll To Top Button */
+
+.up {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--dark-gradient);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.up i {
+    font-size: 30px;
+    color: var(--bg1);
+}
+
+.up:hover {
+    background-color: var(--orange);
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Media Queries */
 
 @media (max-width: 960px) {
