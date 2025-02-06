@@ -12,6 +12,9 @@
     <!-- Link Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -50,21 +53,21 @@
                     створення статей, репортажів, інтерв'ю та медійного контенту. Подорож у світ медіа починається тут!
                 </p>
                 <div class="numbers">
-                    <div class="parent">
+                    <div class="parent" data-aos="fade-up" data-aos-delay="100">
                         <div class="text">
                             <h1>+25</h1>
                             <h2>Вдячних <br> студентів</h2>
                         </div>
                         <img src="/templates/images/shape.png" alt="shape">
                     </div>
-                    <div class="parent">
+                    <div class="parent" data-aos="fade-up" data-aos-delay="200">
                         <div class="text">
                             <h1>+25</h1>
                             <h2>Грамот</h2>
                         </div>
                         <img src="/templates/images/shape.png" alt="shape">
                     </div>
-                    <div class="parent">
+                    <div class="parent" data-aos="fade-up" data-aos-delay="300">
                         <div class="text">
                             <h1>+25</h1>
                             <h2>Статей</h2>
@@ -92,10 +95,10 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <div class="left">
+            <div class="left" data-aos="fade-right">
                 <img src="/templates/images/aboutModel.png" alt="about model">
             </div>
-            <div class="right">
+            <div class="right" data-aos="fade-left">
                 <h1>Чому варто обрати <br> <span>Podil News</span></h1>
                 <p>Podil News — це безкоштовний гурток журналістики для школярів, <br>де ми допомагаємо розкрити ваш
                     творчий потенціал
@@ -216,7 +219,7 @@
     <!-- Contact Section -->
     <section class="contact_section" id="contact">
         <div class="container">
-            <div class="left">
+            <div class="left" data-aos="fade-right">
                 <h1>Ви готові <br> приєднатися до наших курсів журналістики?</h1>
                 <p>
                     Приєднуйтесь до наших курсів журналістики для підлітків і відкрийте для себе світ медіа та
@@ -232,7 +235,7 @@
                     <button type="submit">Приєднатися</button>
                 </form>
             </div>
-            <div class="right">
+            <div class="right" data-aos="fade-left">
                 <img src="/templates/images/contactModel.png" alt="contact model">
             </div>
         </div>
@@ -250,21 +253,21 @@
                     <a href=""><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="footer-data">
+            <div class="footer-data" data-aos="fade-right">
                 <h2>Матеріали</h2>
                 <p><a href="#">Репортажі</a></p>
                 <p><a href="#">Інтерв'ю</a></p>
                 <p><a href="#">Статті</a></p>
                 <p><a href="#">Аналітика</a></p>
             </div>
-            <div class="footer-data">
+            <div class="footer-data" data-aos="fade-left">
                 <h2>Контакти</h2>
                 <p><a href="mailto:info@podilnews.com">Пошта</a></p>
                 <p><a href="#">Редакція</a></p>
                 <p><a href="#">Допомога</a></p>
                 <p><a href="#">Стати автором</a></p>
             </div>
-            <div class="footer-data">
+            <div class="footer-data" data-aos="fade-left">
                 <h2>Правові аспекти</h2>
                 <p><a href="#">Політика конфіденційності</a></p>
                 <p><a href="#">Умови використання</a></p>
@@ -282,6 +285,12 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
 
     <!-- Link JS File -->
     <script src="/templates/main.js"></script>
