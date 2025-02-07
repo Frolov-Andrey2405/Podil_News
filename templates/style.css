@@ -521,6 +521,15 @@ img {
     transition: transform 0.3s ease-in-out;
 }
 
+.hidden {
+    display: none;
+}
+
+.disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
 .article-card:hover {
     transform: translateY(-10px);
 }
@@ -540,6 +549,7 @@ img {
     font-size: var(--h2-font-size);
     font-weight: 600;
     margin-bottom: 10px;
+    color: var(--text);
 }
 
 .article-content p {

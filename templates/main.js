@@ -66,3 +66,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Load More
+
+document.addEventListener("DOMContentLoaded", function () {
+    const articles = document.querySelectorAll(".article-card.hidden");
+    const loadMoreButton = document.getElementById("loadMore");
+    let index = 0;
+
+    loadMoreButton.addEventListener("click", function () {
+        let count = 0;
+        while (index < articles.length && count < 3) {
+            articles[index].classList.remove("hidden");
+            index++;
+            count++;
+        }
+        if (index >= articles.length) {
+            loadMoreButton.classList.add("disabled");
+            loadMoreButton.textContent = "Усі статті показані";
+        }
+    });
+});
