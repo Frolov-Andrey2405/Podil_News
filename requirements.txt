@@ -2,3 +2,7 @@
 
 Django
 Pillow
+
+# Additional libraries
+
+django-unfold
