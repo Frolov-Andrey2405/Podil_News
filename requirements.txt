@@ -1,0 +1,4 @@
+# Main libraries
+
+Django
+Pillow
