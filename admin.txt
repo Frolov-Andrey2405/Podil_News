@@ -1,0 +1,2 @@
+Username: admin_news
+Password: admin_podil_news
