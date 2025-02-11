@@ -1,13 +1,19 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Statistics(models.Model):
     """
     Model for storing general statistics
     """
-    grateful_students = models.PositiveIntegerField(default=0, verbose_name="Кількість вдячних студентів")
+
+    grateful_students = models.PositiveIntegerField(
+        default=0, verbose_name="Кількість вдячних студентів"
+    )
     diplomas = models.PositiveIntegerField(default=0, verbose_name="Кількість грамот")
-    articles_count = models.PositiveIntegerField(default=0, verbose_name="Кількість статей")
+    articles_count = models.PositiveIntegerField(
+        default=0, verbose_name="Кількість статей"
+    )
 
     class Meta:
         verbose_name = "Статистика"
@@ -19,10 +25,12 @@ class Statistics(models.Model):
         """
         return "Загальна статистика"
 
+
 class Tag(models.Model):
     """
     Model for storing tags
     """
+
     name = models.CharField(max_length=50, unique=True, verbose_name="Назва тегу")
 
     class Meta:
@@ -35,17 +43,23 @@ class Tag(models.Model):
         """
         return self.name
 
+
 class Article(models.Model):
     """
     Model for storing articles
     """
+
     title = models.CharField(max_length=200, verbose_name="Заголовок")
     content = models.TextField(verbose_name="Зміст")
     author = models.CharField(max_length=100, verbose_name="Автор")
-    image = models.ImageField(upload_to='articles/', verbose_name="Зображення")
-    created_date = models.DateField(default=timezone.now, verbose_name="Дата публікації")
+    image = models.ImageField(upload_to="articles/", verbose_name="Зображення")
+    created_date = models.DateField(
+        default=timezone.now, verbose_name="Дата публікації"
+    )
     is_published = models.BooleanField(default=True, verbose_name="Опубліковано")
-    tags = models.ManyToManyField(Tag, blank=True, related_name='articles', verbose_name="Теги")
+    tags = models.ManyToManyField(
+        Tag, blank=True, related_name="articles", verbose_name="Теги"
+    )
 
     def __str__(self):
         """

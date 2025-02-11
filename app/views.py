@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from app.models import Statistics, Article
+from django.shortcuts import get_object_or_404, render
+
+from app.models import Article, Statistics
+
 
 def index(request):
     """
@@ -11,15 +13,16 @@ def index(request):
 
     # Obtain or create a statistics object
     statistics, created = Statistics.objects.get_or_create(pk=1)
-    
+
     # Getting published articles
     articles = Article.objects.filter(is_published=True)
-    
+
     context = {
-        'statistics': statistics,
-        'articles': articles,
+        "statistics": statistics,
+        "articles": articles,
     }
-    return render(request, 'main/index.html', context)
+    return render(request, "main/index.html", context)
+
 
 def article_detail(request, article_id):
     """
@@ -30,4 +33,8 @@ def article_detail(request, article_id):
     """
     article = get_object_or_404(Article, id=article_id, is_published=True)
     word_count = len(article.content.split())
-    return render(request, 'main/article_detail.html', {'article': article, 'word_count': word_count})
+    return render(
+        request,
+        "main/article_detail.html",
+        {"article": article, "word_count": word_count},
+    )
