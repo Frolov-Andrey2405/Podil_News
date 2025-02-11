@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Podil News{% endblock %}</title>
+
+    <!-- Link CSS File -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Link Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="{% url 'index' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}" class="logo" alt="Podil News Logo">
+            </a>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="{% url 'index' %}" class="nav-link active">Головна</a></li>
+                    <li><a href="#about" class="nav-link">Про нас</a></li>
+                    <li><a href="#courses" class="nav-link">Курси</a></li>
+                    <li><a href="#articles" class="nav-link">Статті</a></li>
+                    <li><a href="#contact" class="nav-link">Приєднатися</a></li>
+                    <li><a href="/admin" class="nav-link">Admin</a></li>
+                    <li><a href="#footer" class="contact">Контакти</a></li>
+                </ul>
+                <div class="nav-close">
+                    <i class="fa fa-times"></i>
+                </div>
+            </nav>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer Section -->
+    <footer class="footer" id="footer">
+        <div class="footer-list">
+            <div class="footer-data">
+                <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Podil News Logo"></a>
+                <div class="footer-data-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <!-- Footer sections -->
+            {% include 'main/includes/footer_sections.html' %}
+        </div>
+        <div class="copy">
+            <p>&copy; {% now "Y" %} Podil News. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll To Top Button -->
+    <div class="up">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Link JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

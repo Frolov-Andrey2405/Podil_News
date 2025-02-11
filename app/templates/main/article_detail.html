@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% load static %} {% load custom_filters %}
+
+
+{% block title %}{{ article.title }} - Podil News{% endblock %}
+
+{% block content %}
+<!-- Article Content -->
+<main class="article-container">
+    <article>
+        <header class="article-header" data-aos="fade-up">
+            <h1>{{ article.title }}</h1>
+            <div class="article-meta-full">
+                <span class="author">
+                    <i class="fas fa-user"></i> {{ article.author }}
+                </span>
+                <span class="date">
+                    <i class="fas fa-calendar"></i> {{ article.created_date|date:"d.m.Y" }}
+                </span>
+                <span class="reading-time">
+                    <i class="fas fa-clock"></i> {{ word_count|reading_time }} хвилин читання
+                </span>
+
+            </div>
+        </header>
+
+        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image" data-aos="fade-up">
+
+        <div class="article-content" data-aos="fade-up">
+            {{ article.content|linebreaks }}
+        </div>
+
+        <footer class="article-footer">
+            <div class="article-tags">
+                {% for tag in article.tags.all %}
+                <span class="tag">#{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+        </footer>
+    </article>
+</main>
+{% endblock %}

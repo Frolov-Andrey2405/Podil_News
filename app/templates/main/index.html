@@ -1,0 +1,177 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Home Section -->
+<section class="home" id="home">
+    <div class="container">
+        <div class="left">
+            <h1>Все, що вам потрібно, <br> в одному місці</h1>
+            <p>Ласкаво просимо до Podil News! Це гурток з журналістики для школярів,<br>де ви зможете опанувати
+                основи створення статей, репортажів, інтерв'ю та медійного контенту.</p>
+            <div class="numbers">
+                <div class="parent" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text">
+                        <h1>+{{ statistics.grateful_students }}</h1>
+                        <h2>Вдячних <br> студентів</h2>
+                    </div>
+                    <img src="{% static 'images/shape.png' %}" alt="shape">
+                </div>
+                <div class="parent" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text">
+                        <h1>+{{ statistics.diplomas }}</h1>
+                        <h2>Грамот</h2>
+                    </div>
+                    <img src="{% static 'images/shape.png' %}" alt="shape">
+                </div>
+                <div class="parent" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text">
+                        <h1>+{{ statistics.articles_count }}</h1>
+                        <h2>Статей</h2>
+                    </div>
+                    <img src="{% static 'images/shape.png' %}" alt="shape">
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <img src="{% static 'images/homeModel.png' %}" class="home-model" alt="homeModel">
+            <div class="icon">
+                <img src="{% static 'images/microphone.png' %}" alt="microphone">
+            </div>
+            <div class="icon">
+                <img src="{% static 'images/id-card.png' %}" alt="id-card">
+            </div>
+            <div class="icon">
+                <img src="{% static 'images/tips.png' %}" alt="tips">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="left" data-aos="fade-right">
+            <img src="{% static 'images/aboutModel.png' %}" alt="about model">
+        </div>
+        <div class="right" data-aos="fade-left">
+            <h1>Чому варто обрати <br> <span>Podil News</span></h1>
+            <p>Podil News — це безкоштовний гурток журналістики для школярів, <br>де ми допомагаємо розкрити ваш
+                творчий потенціал
+                і навчитися створювати <br> якісний медійний контент. Наші заняття — це перший крок до великого <br>
+                майбутнього у сфері
+                медіа.
+            </p>
+            <div class="advantages">
+                <figure>
+                    <img src="{% static 'images/checked.png' %}" alt="Correct icon">Досвідчені ментори
+                </figure>
+                <figure>
+                    <img src="{% static 'images/checked.png' %}" alt="Correct icon">Безкоштовна участь
+                </figure>
+                <figure>
+                    <img src="{% static 'images/checked.png' %}" alt="Correct icon">Сучасні навчальні матеріали
+                </figure>
+                <figure>
+                    <img src="{% static 'images/checked.png' %}" alt="Correct icon">Підтримка для кожного учасника
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Courses Section -->
+<section class="courses" id="courses">
+    <div class="container">
+        <h1>Досліджуємо курси <span>Журналістики</span></h1>
+        <div class="parent">
+            <div class="child">
+                <img src="{% static 'images/reports.png' %}" alt="reports">
+                <h2>Основи репортажу</h2>
+            </div>
+            <div class="child">
+                <img src="{% static 'images/interview.png' %}" alt="interview">
+                <h2>Мистецтво інтерв'ю</h2>
+            </div>
+            <div class="child">
+                <img src="{% static 'images/articles.png' %}" alt="articles">
+                <h2>Написання статей</h2>
+            </div>
+            <div class="child">
+                <img src="{% static 'images/photo.png' %}" alt="photo">
+                <h2>Основи фотожурналістики</h2>
+            </div>
+            <div class="child">
+                <img src="{% static 'images/edit.png' %}" alt="edit">
+                <h2>Редагування контенту </h2>
+            </div>
+            <div class="child">
+                <img src="{% static 'images/social_networks.png' %}" alt="social networks">
+                <h2>Соціальні мережі</h2>
+            </div>
+            <div class="child">
+                <img src="{% static 'images/podcasts.png' %}" alt="podcasts">
+                <h2>Створення подкастів</h2>
+            </div>
+            <div class="child">
+                <img src="{% static 'images/multimedia.png' %}" alt="multimedia">
+                <h2>Мультимедійна журналістика</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Articles Section -->
+<section class="articles" id="articles">
+    <div class="container">
+        <h1>Наші <span>Статті</span></h1>
+        <div class="articles-grid">
+            {% for article in articles %}
+            <div class="article-card{% if forloop.counter > 3 %} hidden{% endif %}">
+                <a href="{% url 'article_detail' article.id %}">
+                    <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                    <div class="article-content">
+                        <h2>{{ article.title }}</h2>
+                        <p>{{ article.content|truncatewords:30 }}</p>
+                        <div class="article-meta">
+                            <span class="author">{{ article.author }}</span>
+                            <span class="date">{{ article.created_date|date:"d.m.Y" }}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% if articles.count > 3 %}
+        <div class="more-articles">
+            <button id="loadMore" class="more-articles-button">Більше статей</button>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact_section" id="contact">
+    <div class="container">
+        <div class="left" data-aos="fade-right">
+            <h1>Ви готові <br> приєднатися до наших курсів журналістики?</h1>
+            <p>
+                Приєднуйтесь до наших курсів журналістики для підлітків і відкрийте для себе світ медіа та
+                комунікацій! <br>
+                Наші курси розроблені спеціально для молодих талановитих людей, які хочуть навчитися писати статті,
+                проводити інтерв'ю та створювати цікавий контент. <br>
+                Ми надаємо унікальну можливість розвинути свої навички та отримати досвід роботи в реальних
+                медіа-проектах. <br>
+                Не втрачайте шанс стати частиною нашої творчої спільноти та почати свою кар'єру в журналістиці!
+            </p>
+            <form action="">
+                <input type="tel" placeholder="Ваш номер телефону" pattern="[0-9]{9}" required>
+                <button type="submit">Приєднатися</button>
+            </form>
+        </div>
+        <div class="right" data-aos="fade-left">
+            <img src="{% static 'images/contactModel.png' %}" alt="contact model">
+        </div>
+    </div>
+</section>
+{% endblock %}
