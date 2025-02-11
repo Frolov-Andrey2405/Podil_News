@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+from app.templatetags.custom_filters import reading_time
+
 
 class Statistics(models.Model):
     """
@@ -87,6 +89,4 @@ class Article(models.Model):
         """
         Return the reading time of the article in minutes
         """
-        words = len(self.content.split())
-        minutes = max(1, words // 150)  # Approximately 150 words per minute
-        return minutes
+        return reading_time(len(self.content.split()))
