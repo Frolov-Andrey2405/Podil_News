@@ -61,6 +61,10 @@ class Article(models.Model):
         Tag, blank=True, related_name="articles", verbose_name="Теги"
     )
 
+    class Meta:
+        verbose_name = "Стаття"
+        verbose_name_plural = "Статті"
+
     def __str__(self):
         """
         Return string representation of the object
